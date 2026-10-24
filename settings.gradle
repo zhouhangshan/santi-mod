@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'NeoForged'
+            // Public CDN mirror of maven.neoforged.net (also serves the NeoGradle plugin artifacts).
+            url = 'https://neoforged.forgecdn.net/releases/'
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'santi-coord-broadcaster'

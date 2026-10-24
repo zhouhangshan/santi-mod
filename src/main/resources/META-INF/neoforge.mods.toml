@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[2,)"
+
+# NeoForge reads the file-level license from the TOP LEVEL of this TOML file.
+# It must be a direct key here: a `license` line inside [[mods]] is ignored by
+# ModFileInfo and the mod is rejected with "InvalidModFileException: Missing license".
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.22)"
+    ordering="NONE"
+    side="BOTH"

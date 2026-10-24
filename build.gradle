@@ -1,0 +1,75 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.gradle.userdev' version '7.0.172'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    maven {
+        name = 'AliyunPublic'
+        url = 'https://maven.aliyun.com/repository/public'
+    }
+    maven {
+        name = 'NeoForged'
+        url = 'https://neoforged.forgecdn.net/releases/'
+    }
+    mavenCentral()
+}
+
+// libraries.minecraft.net only hosts the jars listed in MC's own metadata; the transitive Maven
+// dependencies are absent there and one of them got cached as a parse error, which disables the
+// 'Mojang' repo NeoGradle injects and aborts configuration. Point it at the mirror (same content).
+gradle.settingsEvaluated {
+    gradle.rootProject {
+        allprojects {
+            repositories.whenObjectAdded { repo -> }
+        }
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+}
+
+tasks.named('processResources') {
+    def replaceProperties = [
+        mod_id           : mod_id,
+        mod_name         : mod_name,
+        mod_version      : mod_version,
+        mod_license      : mod_license,
+        mod_authors      : mod_authors,
+        mod_description  : mod_description,
+        minecraft_version: minecraft_version,
+        neo_version      : neo_version
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+            'Specification-Title'     : mod_id,
+            'Specification-Vendor'    : mod_authors,
+            'Specification-Version'   : '1',
+            'Implementation-Title'    : project.name,
+            'Implementation-Version'  : project.version,
+            'Implementation-Vendor'   : mod_authors,
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
