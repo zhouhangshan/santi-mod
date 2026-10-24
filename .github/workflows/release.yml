@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:   # <--- 加上这一行！
 
 permissions:
   contents: write
