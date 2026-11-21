@@ -441,6 +441,46 @@ cd santi-coord-broadcaster
     </p>
   </section>
 
+  <!-- ================= 获取模组 / 下载 ================= -->
+  <section class="card">
+    <h2>获取模组</h2>
+    <p class="muted">
+      本项目目前<strong>未在 Release 中提供预编译的 .jar 文件</strong>。请通过以下任一方式获取模组文件。
+    </p>
+
+    <div class="grid" style="margin-top:16px;">
+      <!-- 方式一：自行编译 -->
+      <div class="tile">
+        <div class="tile-k">🛠️ 自行编译（推荐）</div>
+        <p>
+          按照上方「自行编译」板块的步骤操作，生成的 <code>santi-1.0.0.jar</code> 位于
+          <code>build/libs/</code> 目录，可直接使用。
+        </p>
+      </div>
+
+      <!-- 方式二：下载源码 -->
+      <div class="tile">
+        <div class="tile-k">📦 下载源码包</div>
+        <p>
+          在 GitHub 仓库页面点击 <strong>“Code” → “Download ZIP”</strong> 下载源码压缩包，
+          解压后按「自行编译」步骤构建。
+        </p>
+        <p style="margin-top:8px;">
+          <a href="https://github.com/zhouhangshan/santi-mod" target="_blank" rel="noopener"
+             style="color:var(--brand);font-weight:600;text-decoration:none;">
+            → 前往 GitHub 仓库
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:18px;">
+      <strong>提示：</strong>构建完成的 <code>santi-1.0.0.jar</code> 请放入
+      <code>.minecraft/mods</code> 文件夹，配合 NeoForge 21.1.252 使用。
+      详细安装步骤见下方「安装」板块。
+    </p>
+  </section>
+
   <!-- ================= 安装 ================= -->
   <section class="card">
     <h2>安装</h2>
@@ -462,7 +502,7 @@ cd santi-coord-broadcaster
       </li>
       <li>
         <strong>聊天不显示中文？</strong>
-        <p>请确认游戏语言为简体中文（已内置 <code>zh_cn</code> 语言文件）</p>
+        <p>请确认游戏语言为简体中文（已内置 <code>zh_cn</code> 语言文件）。</p>
       </li>
     </ul>
   </section>
@@ -482,36 +522,34 @@ cd santi-coord-broadcaster
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
     <defs>
       <clipPath id="ballClip">
-        <circle cx="50" cy="50" r="43"/>
+        <circle cx="50" cy="50" r="43"></circle>
       </clipPath>
     </defs>
 
     <!-- 球体底色（下半） -->
-    <circle cx="50" cy="50" r="43" fill="#f7f9ff"/>
+    <circle cx="50" cy="50" r="43" fill="#f7f9ff"></circle>
 
     <!-- 上半球 -->
     <g clip-path="url(#ballClip)">
-      <rect x="0" y="0" width="100" height="50" fill="#e0453c"/>
+      <rect x="0" y="0" width="100" height="50" fill="#e0453c"></rect>
     </g>
 
     <!-- 外圈 -->
-    <circle cx="50" cy="50" r="43" fill="none" stroke="#171b26" stroke-width="5"/>
+    <circle cx="50" cy="50" r="43" fill="none" stroke="#171b26" stroke-width="5"></circle>
 
     <!-- 中缝 -->
-    <line x1="7" y1="50" x2="93" y2="50" stroke="#171b26" stroke-width="5"/>
+    <line x1="7" y1="50" x2="93" y2="50" stroke="#171b26" stroke-width="5"></line>
 
     <!-- 中心按钮圆 -->
-    <circle cx="50" cy="50" r="17" fill="#ffffff" stroke="#171b26" stroke-width="4.5"/>
+    <circle cx="50" cy="50" r="17" fill="#ffffff" stroke="#171b26" stroke-width="4.5"></circle>
 
     <!-- 双色房子：红色屋顶 + 深色墙体 -->
-    <path d="M50 37.6 L62.4 49.6 H37.6 Z" fill="#e0453c" stroke="#171b26"
-          stroke-width="1.6" stroke-linejoin="round"/>
-    <rect x="42.6" y="49.4" width="14.8" height="11"
-          fill="#171b26" stroke="#171b26" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M50 37.6 L62.4 49.6 H37.6 Z" fill="#e0453c" stroke="#171b26" stroke-width="1.6" stroke-linejoin="round"></path>
+    <rect x="42.6" y="49.4" width="14.8" height="11" fill="#171b26" stroke="#171b26" stroke-width="1.6" stroke-linejoin="round"></rect>
     <!-- 门 -->
-    <rect x="47.4" y="53.2" width="5.2" height="7.2" rx="1" fill="#ffffff"/>
+    <rect x="47.4" y="53.2" width="5.2" height="7.2" rx="1" fill="#ffffff"></rect>
   </svg>
 </a>
 
 </body>
-  </html>
+</html>
